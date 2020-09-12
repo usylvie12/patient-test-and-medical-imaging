@@ -1,0 +1,89 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top ">
+  <div class="container">
+<a class="navbar-brand" href="#"><img src="{{ url_for('static', filename='images/logo.png') }}" lt="logo"></a>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+>
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="nav justify-content-end ml-auto">
+    <li class="nav-item text-uppercase">
+        <a class="nav-link" href="/">home</a>
+      </li>
+    <li class="nav-item text-uppercase">
+        <a class="nav-link" href="/new"> New</a>
+      </li>  
+   </ul>
+</div>
+</div>
+</nav>
+
+
+
+
+
+   
+<section class="info">
+  
+ <h2 class="text-center text-capitalize">All Patient Data</h2>
+
+  <div  class="container padding col-md-12">
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th scope="col">Patient Names</th>
+        <th scope="col">Doctor Names</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Test</th>
+        <th scope="col">Result</th>
+        <th scope="col">Medical Imaging</th>
+        <th scope="col">Action</th>
+      </tr> 
+    </thead>
+    <tbody>
+
+
+
+      
+      {% for i in patients %}
+
+      <tr>
+        <td>{{i.PatientNames}}</td>
+        <td>{{i.DoctorNames}}</td>
+        <td>{{i.Age}}</td>
+        <td>{{i.Gender}}</td>
+        <td>{{i.Test}}</td>
+        <td>{{i.Result}}</td>
+        <td>{{i.MedicalImaging}}</td>
+
+        <td>
+            <a href="/delete" type="submit" class="btn-signup">Delete</a> <br>
+            <a href="/update" type="submit" class="btn-signup">Update</a>
+          </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  </div>
+</section>
+  
+  
+ 
+
+    <footer>
+
+        
+                 
+                 <div class="col-12 text-center">
+                  
+                   <p> &copy; BuildForSDG Team-808</p>
+                 </div>
+         
+      </footer>
+      {% endblock %}
