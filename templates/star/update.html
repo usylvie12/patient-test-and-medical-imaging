@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+{%extends 'star/base.html'%}
+{%block child_block%}
+{% load crispy_forms_tags %}
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top ">
+    <div class="container">
+  <a class="navbar-brand" href="#">Patient Test And Medical Imaging</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav justify-content-end ml-auto">
+     
+      <li class="nav-item text-uppercase">
+        <a class="nav-link" href="/show">Find Patient</a>
+      </li>
+     
+     
+           
+     </ul>
+  </div>
+</div>
+</nav>
+
+<h2 class="text-center text-capitalize">Update Patient Data</h2>
+    <div  class="container padding col-md-4">
+<form action="" method="POST" >
+
+{%csrf_token%}
+    {{form|crispy}}
+    Names:<input type="text" class="form-control"  name="" value="{{patient.names}}">
+    Dr:<input type="text" class="form-control" name="" value="{{patient.dr}}"> <br>
+    Age:<input type="text" class="form-control" name="" value="{{patient.age}}"> <br>
+    Gender:<input type="text" class="form-control"  name="" value="{{patient.gender}}"> <br>
+    Test:<input type="text" class="form-control"  name="" value="{{patient.test}}"> <br>
+    Result:<input type="text"  class="form-control" name="" value="{{patient.result}}"> <br>
+    <input type="submit" name="" value="Update " class="btn-signup">
+</form>
+
+{%endblock%}

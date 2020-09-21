@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{%extends 'star/base.html'%}
+{%block child_block%}
+{% load crispy_forms_tags %}
+<nav class="navbar navbar-expand-lg navbar-light  sticky-top ">
+    <div class="container">
+  <a class="navbar-brand" href="#">Patient Test And Medical Imaging</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="nav justify-content-end ml-auto">
+     
+      <li class="nav-item text-uppercase">
+        <a class="nav-link" href="/show">Find Patient</a>
+      </li>
+     
+     
+           
+     </ul>
+  </div>
+</div>
+</nav>
+<h2 class="text-center text-capitalize">Patient Data</h2>
+    <div  class="container padding col-md-8">
+<form action="" method="POST" class="col-md-6">
+    
+   
+    
+    {%csrf_token%}
+    {{form|crispy}}
+    <input type="submit" value="Save" class="btn-signup" >
+</form>
+</div>
+{%endblock%}
